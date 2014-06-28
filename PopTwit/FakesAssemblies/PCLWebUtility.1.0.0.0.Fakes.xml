@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PCLWebUtility.1.0.0.0.Fakes</name>
+    </assembly>
+    <members>
+        <member name="T:PCLWebUtility.Fakes.ShimWebUtility">
+            <summary>PCLWebUtility.WebUtility の shim 型</summary>
+        </member>
+        <member name="M:PCLWebUtility.Fakes.ShimWebUtility.#ctor">
+            <summary>新しい shim インスタンスを初期化します</summary>
+        </member>
+        <member name="M:PCLWebUtility.Fakes.ShimWebUtility.BehaveAsCurrent">
+            <summary>shim が適用された型のすべてのメソッドに対して &apos;Current&apos; 動作を割り当てます</summary>
+        </member>
+        <member name="M:PCLWebUtility.Fakes.ShimWebUtility.BehaveAsNotImplemented">
+            <summary>shim が適用された型のすべてのメソッドに対して &apos;NotImplemented&apos; 動作を割り当てます</summary>
+        </member>
+        <member name="P:PCLWebUtility.Fakes.ShimWebUtility.Behavior">
+            <summary>shim が適用された型のすべてのメソッドに対して動作を割り当てます</summary>
+        </member>
+        <member name="P:PCLWebUtility.Fakes.ShimWebUtility.HtmlDecodeString">
+            <summary>WebUtility.HtmlDecode(String value) の shim の設定</summary>
+        </member>
+        <member name="P:PCLWebUtility.Fakes.ShimWebUtility.HtmlDecodeStringTextWriter">
+            <summary>WebUtility.HtmlDecode(String value, TextWriter output) の shim の設定</summary>
+        </member>
+        <member name="P:PCLWebUtility.Fakes.ShimWebUtility.HtmlEncodeString">
+            <summary>WebUtility.HtmlEncode(String value) の shim の設定</summary>
+        </member>
+        <member name="P:PCLWebUtility.Fakes.ShimWebUtility.HtmlEncodeStringTextWriter">
+            <summary>WebUtility.HtmlEncode(String value, TextWriter output) の shim の設定</summary>
+        </member>
+        <member name="P:PCLWebUtility.Fakes.ShimWebUtility.UrlDecodeString">
+            <summary>WebUtility.UrlDecode(String encodedValue) の shim の設定</summary>
+        </member>
+        <member name="P:PCLWebUtility.Fakes.ShimWebUtility.UrlEncodeString">
+            <summary>WebUtility.UrlEncode(String value) の shim の設定</summary>
+        </member>
+    </members>
+</doc>
