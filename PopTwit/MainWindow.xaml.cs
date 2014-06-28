@@ -12,7 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Forms;
+using System.Drawing;
 using Tweetinvi;
+
 
 namespace PopTwit
 {
@@ -21,19 +24,25 @@ namespace PopTwit
     /// </summary>
     public partial class MainWindow : Window
     {
-        private string consumerKey    = "Ul0HawBthgiGnd7ar1qtJfIRX";
-        private string consumerSecret = "JzSYSA7wvYGL3qsJqpNcSFDgIuxgW8NFH3w8Bq71enVzbJlxaD";
-        private string accessToken    = "196993405-2KVq1DrwBjzJl4o4zpHsePRkxnWru1rh3vXH9QPV";
-        private string accessSecret   = "hem7LrhhE9LK569vNVcaIApDko1Fk5CIDoUlxl9eiIPe3";
-
         private HotKey hotkey;
-
+        private TweetController controller;
         public MainWindow()
         {
             InitializeComponent();
-            TwitterCredentials.SetCredentials(accessToken, accessSecret, consumerKey, consumerSecret);
             this.Hide();
             InitializeBinding();
+
+            controller = new TweetController();
+            controller.ProcessStream();
+        }
+
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // クローズ処理をキャンセルして、タスクバーの表示も消す
+            e.Cancel = true;
+            this.WindowState = System.Windows.WindowState.Minimized;
+            this.ShowInTaskbar = false;
         }
 
         private void InitializeBinding()
@@ -44,8 +53,8 @@ namespace PopTwit
         private void clickedTweetButton(object sender, RoutedEventArgs e)
         {
             string text = TweetBox.Text;
-            Tweetinvi.Core.Interfaces.ITweet tweet = Tweet.PublishTweet(text);
-            if (tweet.IsTweetPublished)
+            
+            if (controller.Update(text))
             {
                 TweetBox.Clear();
                 Hide();
