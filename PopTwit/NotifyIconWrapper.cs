@@ -53,7 +53,7 @@ namespace PopTwit
         public void ShowPopup(string text)
         {
             notifyIcon1.BalloonTipText = text;
-            notifyIcon1.ShowBalloonTip(1000, "Reply", text, System.Windows.Forms.ToolTipIcon.None);
+            notifyIcon1.ShowBalloonTip(500, "Tweet", text, System.Windows.Forms.ToolTipIcon.None);
         }
         //public NotifyIconWrapper(IContainer container)
         //{

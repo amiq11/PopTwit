@@ -26,14 +26,16 @@ namespace PopTwit
     {
         private HotKey hotkey;
         private TweetController controller;
+        public static readonly ICommand TweetCmd = new TweetCommand();
+
         public MainWindow()
         {
             InitializeComponent();
             this.Hide();
             InitializeBinding();
-
             controller = new TweetController();
             controller.ProcessStream();
+            ((TweetCommand)TweetCmd).RegisterWindow(this);
         }
 
 
@@ -52,16 +54,25 @@ namespace PopTwit
 
         private void clickedTweetButton(object sender, RoutedEventArgs e)
         {
+            Tweet();
+        }
+
+        private void Tweet()
+        {
             string text = TweetBox.Text;
-            
+            NotifyIconWrapper notify = System.Windows.Application.Current.Properties["notifyIcon"] as NotifyIconWrapper;
+
             if (controller.Update(text))
             {
                 TweetBox.Clear();
                 Hide();
+                if (notify != null) notify.ShowPopup("Tweeted: " + text);
             }
             else
             {
                 Console.WriteLine("Something Wrong!");
+                if (notify != null) notify.ShowPopup("Tweet Failed..");
+
             }
         }
 
@@ -74,8 +85,27 @@ namespace PopTwit
             else
             {
                 this.Show();
-                this.TweetBox.Clear();
                 this.TweetBox.Focus();
+            }
+        }
+
+        public class TweetCommand : ICommand
+        {
+            MainWindow window;
+            public void RegisterWindow(MainWindow window)
+            {
+                this.window = window;
+            }
+            public bool CanExecute(object parameter)
+            {
+                return true;
+            }
+
+            public event EventHandler CanExecuteChanged;
+
+            public void Execute(object parameter)
+            {
+                window.Tweet();
             }
         }
     }
