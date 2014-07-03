@@ -9,18 +9,55 @@ using Tweetinvi;
 
 namespace PopTwit
 {
-    delegate void ReplyEventHandler(Tweetinvi.Core.Interfaces.ITweet tweet);
+    public delegate void ReplyEventHandler(Tweetinvi.Core.Interfaces.ITweet tweet);
 
-    class TweetController
+    public class TweetController
     {
-        private string consumerKey = "Ul0HawBthgiGnd7ar1qtJfIRX";
-        private string consumerSecret = "JzSYSA7wvYGL3qsJqpNcSFDgIuxgW8NFH3w8Bq71enVzbJlxaD";
-        private string accessToken = "196993405-2KVq1DrwBjzJl4o4zpHsePRkxnWru1rh3vXH9QPV";
-        private string accessSecret = "hem7LrhhE9LK569vNVcaIApDko1Fk5CIDoUlxl9eiIPe3";
+        static public string ConsumerKey { get { return "Ul0HawBthgiGnd7ar1qtJfIRX"; } }
+        static public string ConsumerSecret { get { return "JzSYSA7wvYGL3qsJqpNcSFDgIuxgW8NFH3w8Bq71enVzbJlxaD"; } }
+        static public string AccessToken { 
+            get { return Properties.Settings.Default.AccessToken; }
+            set { 
+                Properties.Settings.Default.AccessToken = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+        static public string AccessSecret
+        {
+            get { return Properties.Settings.Default.AccessSecret; }
+            set
+            {
+                Properties.Settings.Default.AccessSecret = value;
+                Properties.Settings.Default.Save();
+            }
+        }
+
         private Tweetinvi.Core.Interfaces.oAuth.IOAuthCredentials credential;
+        private TweetAuthWindow taw;
         public TweetController()
         {
-            credential = TwitterCredentials.CreateCredentials(accessToken, accessSecret, consumerKey, consumerSecret);
+            if (AccessToken.Length == 0 || AccessSecret.Length == 0)
+            {
+                taw = new TweetAuthWindow(this);
+                taw.Show();
+            }
+            else
+            {
+                Console.WriteLine("Token: " + TweetController.AccessToken);
+                Console.WriteLine("Secret: " + TweetController.AccessSecret);
+                credential = TwitterCredentials.CreateCredentials(AccessToken, AccessSecret, ConsumerKey, ConsumerSecret);
+                TwitterCredentials.SetCredentials(credential);
+            }
+        }
+
+        public void Reauthorize()
+        {
+            taw = new TweetAuthWindow(this);
+            taw.Show();
+        }
+
+        public void RenewCredential() {
+            credential = TwitterCredentials.CreateCredentials(AccessToken, AccessSecret, ConsumerKey, ConsumerSecret);
             TwitterCredentials.SetCredentials(credential);
         }
 

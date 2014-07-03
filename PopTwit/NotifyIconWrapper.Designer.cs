@@ -34,6 +34,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemShow = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemAuth = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             // 
             // notifyIcon1
@@ -47,9 +48,10 @@
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemShow,
+            this.toolStripMenuItemAuth,
             this.toolStripMenuItemExit});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(99, 70);
             // 
             // toolStripMenuItemShow
             // 
@@ -62,6 +64,12 @@
             this.toolStripMenuItemExit.Name = "toolStripMenuItemExit";
             this.toolStripMenuItemExit.Size = new System.Drawing.Size(98, 22);
             this.toolStripMenuItemExit.Text = "終了";
+            // 
+            // toolStripMenuItemAuth
+            // 
+            this.toolStripMenuItemAuth.Name = "toolStripMenuItemAuth";
+            this.toolStripMenuItemAuth.Size = new System.Drawing.Size(98, 22);
+            this.toolStripMenuItemAuth.Text = "認証";
             this.contextMenuStrip1.ResumeLayout(false);
 
         }
@@ -72,5 +80,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemShow;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemExit;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAuth;
     }
 }

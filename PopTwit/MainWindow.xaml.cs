@@ -76,6 +76,11 @@ namespace PopTwit
             }
         }
 
+        public void Reauthorize()
+        {
+            controller.Reauthorize();
+        }
+
         private void OnHotKeyHandler(HotKey hotKey)
         {
             if (this.IsActive)

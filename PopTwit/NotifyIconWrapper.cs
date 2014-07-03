@@ -17,7 +17,7 @@ namespace PopTwit
             // イベントハンドラの設定
             toolStripMenuItemShow.Click += toolStripMenuItemShow_Click;
             toolStripMenuItemExit.Click += toolStripMenuItemExit_Click;
-
+            toolStripMenuItemAuth.Click += toolStripMenuItemAuth_Click;
         }
 
         // 常駐させるウィンドウはここで保持する
@@ -32,6 +32,10 @@ namespace PopTwit
         {
             System.Windows.Application.Current.Shutdown();
         }
+        void toolStripMenuItemAuth_Click(object sender, EventArgs e)
+        {
+            win.Reauthorize();
+        }        
 
         private void notifyIcon1_MouseDoubleClick(object sender, System.Windows.Forms.MouseEventArgs e)
         {
