@@ -1,4 +1,4 @@
-PopTwit
+ï»¿PopTwit
 =======
 
 Twitter Client to tweet, notify a reply and reply to the reply.
@@ -13,27 +13,27 @@ Install
 
 Then, Press HENKAN Key (only in JP106 Keyboard)
 
-EEE‚Æ‚¢‚¤‚í‚¯‚ÅA‰pŒê‚Å•¶Í‚ð‘‚­ˆÓ–¡‚ð‚ ‚Ü‚èŠ´‚¶‚È‚­‚È‚Á‚Ä‚µ‚Ü‚Á‚½‚Ì‚Å“ú–{Œê‚Åà–¾‚ð‘‚«‚Ü‚·B
+ãƒ»ãƒ»ãƒ»ã¨ã„ã†ã‚ã‘ã§ã€è‹±èªžã§æ–‡ç« ã‚’æ›¸ãæ„å‘³ã‚’ã‚ã¾ã‚Šæ„Ÿã˜ãªããªã£ã¦ã—ã¾ã£ãŸã®ã§æ—¥æœ¬èªžã§èª¬æ˜Žã‚’æ›¸ãã¾ã™ã€‚
 
-ƒCƒ“ƒXƒg[ƒ‹
+ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
 ----
-1. https://github.com/amiq11/PopTwit/releases@‚ÖƒAƒNƒZƒX
-2. ÅV‚ÌPopTwitInstaller.exe‚ðƒ_ƒEƒ“ƒ[ƒh‚µ‚ÄƒCƒ“ƒXƒg[ƒ‹
-3. ƒXƒ^[ƒgƒƒjƒ…[‚©‚çPopTwit‚ðŽÀs
-4. ‰‰ñ‹N“®Žž‚ÉPINƒR[ƒh‚ð•·‚©‚ê‚é‚Ì‚ÅAo‚Ä‚«‚½‰æ–Ê‚©‚çƒƒOƒCƒ“‚µ‚Ä“ü—Í
-5. PopTwit‚ðÄ‹N“®iƒ^ƒXƒNƒo[‚Ì‚«o‚µƒ}[ƒN‚ð‰EƒNƒŠƒbƒN¨I—¹‚ð‚µ‚Ä‚©‚ç‚à‚¤ˆê“x‹N“®j
-(Ä‹N“®‚µ‚È‚­‚Ä‚à‚¢‚¢‚æ‚¤‚ÉC³‚µ‚½‚¢EEE)
+1. https://github.com/amiq11/PopTwit/releasesã€€ã¸ã‚¢ã‚¯ã‚»ã‚¹
+2. æœ€æ–°ã®PopTwitInstaller.exeã‚’ãƒ€ã‚¦ãƒ³ãƒ­ãƒ¼ãƒ‰ã—ã¦ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«
+3. ã‚¹ã‚¿ãƒ¼ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰PopTwitã‚’å®Ÿè¡Œ
+4. åˆå›žèµ·å‹•æ™‚ã«PINã‚³ãƒ¼ãƒ‰ã‚’èžã‹ã‚Œã‚‹ã®ã§ã€å‡ºã¦ããŸç”»é¢ã‹ã‚‰ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦å…¥åŠ›
+5. PopTwitã‚’å†èµ·å‹•ï¼ˆã‚¿ã‚¹ã‚¯ãƒãƒ¼ã®å¹ãå‡ºã—ãƒžãƒ¼ã‚¯ã‚’å³ã‚¯ãƒªãƒƒã‚¯â†’çµ‚äº†ã‚’ã—ã¦ã‹ã‚‰ã‚‚ã†ä¸€åº¦èµ·å‹•ï¼‰
+(å†èµ·å‹•ã—ãªãã¦ã‚‚ã„ã„ã‚ˆã†ã«ä¿®æ­£ã—ãŸã„ãƒ»ãƒ»ãƒ»)
 
-‚±‚ê‚ÅA‚ ‚Æ‚Íu•ÏŠ·vƒL[‚ð“ü—Í‚·‚é‚¾‚¯‚ÅƒcƒC[ƒg‚Å‚«‚Ü‚·I
+ã“ã‚Œã§ã€ã‚ã¨ã¯ã€Œå¤‰æ›ã€ã‚­ãƒ¼ã‚’å…¥åŠ›ã™ã‚‹ã ã‘ã§ãƒ„ã‚¤ãƒ¼ãƒˆã§ãã¾ã™ï¼
 
 
-—˜—p•û–@
+åˆ©ç”¨æ–¹æ³•
 ----
-1. ƒcƒC[ƒg‚µ‚½‚¢I@¨@u•ÏŠ·ƒL[v‚©‚çƒcƒC[ƒg‘‚¢‚ÄuCtrl + Enterv
-2. ƒŠƒvƒ‰ƒC‚µ‚½‚¢I@¨@u•ÏŠ·ƒL[v‚©‚çuCtrl + •ÏŠ·vuCtrl + –³•ÏŠ·v‚ðŽg‚Á‚ÄƒŠƒvƒ‰ƒC‚ð‘I‘ð‚µ‚Ä•ÔŽ–‚ð‹Lq
-3. ƒŠƒvƒ‰ƒC‚µ‚½‚­‚È‚­‚È‚Á‚½I@¨@uCtrl + Spacev‚ÅƒŠƒvƒ‰ƒC‘I‘ð‚ð‰ðœ
+1. ãƒ„ã‚¤ãƒ¼ãƒˆã—ãŸã„ï¼ã€€â†’ã€€ã€Œå¤‰æ›ã‚­ãƒ¼ã€ã‹ã‚‰ãƒ„ã‚¤ãƒ¼ãƒˆæ›¸ã„ã¦ã€ŒCtrl + Enterã€
+2. ãƒªãƒ—ãƒ©ã‚¤ã—ãŸã„ï¼ã€€â†’ã€€ã€Œå¤‰æ›ã‚­ãƒ¼ã€ã‹ã‚‰ã€ŒCtrl + å¤‰æ›ã€ã€ŒCtrl + ç„¡å¤‰æ›ã€ã‚’ä½¿ã£ã¦ãƒªãƒ—ãƒ©ã‚¤ã‚’é¸æŠžã—ã¦è¿”äº‹ã‚’è¨˜è¿°
+3. ãƒªãƒ—ãƒ©ã‚¤ã—ãŸããªããªã£ãŸï¼ã€€â†’ã€€ã€ŒCtrl + Spaceã€ã§ãƒªãƒ—ãƒ©ã‚¤é¸æŠžã‚’è§£é™¤
 
-ƒ‰ƒCƒZƒ“ƒX
+ãƒ©ã‚¤ã‚»ãƒ³ã‚¹
 ----
-OAuth.cs‚Ì‚ÝMs-CLƒ‰ƒCƒZƒ“ƒXB
-‚»‚êˆÈŠO‚Í2€BSDƒ‰ƒCƒZƒ“ƒX‚Å‚·B
+OAuth.csã®ã¿Ms-CLãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã€‚
+ãã‚Œä»¥å¤–ã¯2é …BSDãƒ©ã‚¤ã‚»ãƒ³ã‚¹ã§ã™ã€‚
