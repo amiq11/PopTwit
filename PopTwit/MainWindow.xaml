@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:poptwit="clr-namespace:PopTwit" xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="PopTwit.MainWindow"
         Title="PopTwit" Height="250"
-        MinWidth="300" Width="300">
+        Width="310" ResizeMode="NoResize">
     <Window.Resources>
         <System:String x:Key="UsageString" xml:space="preserve">＊使い方＊
 「変換」キーでウィンドウを出したりひっこめたり
@@ -25,8 +25,8 @@
         <KeyBinding Command="{x:Static poptwit:MainWindow.ClearTweetCmd}" Key="Space" Modifiers="Control"/>
     </Window.InputBindings>
     <StackPanel>
-        <StackPanel Orientation="Horizontal" MinWidth="300" MinHeight="100">
-            <TextBox x:Name="TweetBox" TextWrapping="WrapWithOverflow" Margin="0,5" ToolTip="Type your tweet!" MinWidth="200" MinHeight="90"/>
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="TweetBox" TextWrapping="Wrap" Margin="0,5" ToolTip="Type your tweet!" Width="200" Height="90" AcceptsReturn="True"/>
             <Button Content="Tweet" VerticalAlignment="Center" Width="75" Command="{x:Static poptwit:MainWindow.TweetCmd}" HorizontalAlignment="Right" Margin="10,40,0,40"/>
         </StackPanel>
         <TextBlock x:Name="ReplyBlock" Text="{DynamicResource UsageString}" TextWrapping="Wrap"/>

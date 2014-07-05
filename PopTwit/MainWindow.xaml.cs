@@ -47,16 +47,15 @@ namespace PopTwit
             ((NextReplyCommand)NextReplyCmd).RegisterWindow(this);
             ((PrevReplyCommand)PrevReplyCmd).RegisterWindow(this);
             ((ClearTweetCommand)ClearTweetCmd).RegisterWindow(this);
-            
+            this.Closing += WindowClosing;
         }
 
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // クローズ処理をキャンセルして、タスクバーの表示も消す
+            // クローズ処理をキャンセルして消える
             e.Cancel = true;
-            this.WindowState = System.Windows.WindowState.Minimized;
-            this.ShowInTaskbar = false;
+            Hide();
         }
 
         private void InitializeBinding()
