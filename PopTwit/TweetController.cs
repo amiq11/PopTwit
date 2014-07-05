@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.Windows;
 using Tweetinvi;
+using Tweetinvi.Core.Interfaces;
 
 namespace PopTwit
 {
@@ -87,19 +88,27 @@ namespace PopTwit
                         }
                     }
                 };
+
+                stream.TweetCreatedByMe += (sender, e) =>
+                {
+                    var t = e.Tweet;
+                    Console.WriteLine("tweeted by: " + t.Creator.ScreenName + ", reply to: " + t.InReplyToScreenName + ", status: " + t.Text);
+                    NotifyIconWrapper nofity = (NotifyIconWrapper)Application.Current.Properties["notifyIcon"];
+                    nofity.ShowPopup(t.Creator.Name + " [" + t.Creator.ScreenName + "]: " + t.Text);
+                };
                 stream.StartStreamAsync();
             //});
         }
 
 
-        public bool Update(string tweet)
+        public ITweet Update(string tweet)
         {
-            Tweetinvi.Core.Interfaces.ITweet t = Tweet.CreateTweet(tweet);
+            ITweet t = Tweet.CreateTweet(tweet);
             TwitterCredentials.ExecuteOperationWithCredentials(credential, () =>
             {
                 Tweet.PublishTweet(t);
             });
-            return t.IsTweetPublished;
+            return t;
         }
     }
 }

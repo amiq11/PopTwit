@@ -14,8 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Forms;
 using System.Drawing;
-using Tweetinvi;
-
+//using Tweetinvi;
+using Tweetinvi.Core.Interfaces;
 
 namespace PopTwit
 {
@@ -61,12 +61,12 @@ namespace PopTwit
         {
             string text = TweetBox.Text;
             NotifyIconWrapper notify = System.Windows.Application.Current.Properties["notifyIcon"] as NotifyIconWrapper;
-
-            if (controller.Update(text))
+            ITweet t = controller.Update(text);
+            if (t.IsTweetPublished)
             {
                 TweetBox.Clear();
                 Hide();
-                if (notify != null) notify.ShowPopup("Tweeted: " + text);
+                //if (notify != null) notify.ShowPopup(t.Creator.ScreenName + "[" + t.Creator.Name + "]: " + text);
             }
             else
             {
