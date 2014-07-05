@@ -17,7 +17,7 @@ Then, Press HENKAN Key (only in JP106 Keyboard)
 
 インストール
 ----
-1. https://github.com/amiq11/PopTwit/releases　へアクセス
+1. リリースページへアクセス https://github.com/amiq11/PopTwit/releases
 2. 最新のPopTwitInstaller.exeをダウンロードしてインストール
 3. スタートメニューからPopTwitを実行
 4. 初回起動時にPINコードを聞かれるので、出てきた画面からログインして入力
