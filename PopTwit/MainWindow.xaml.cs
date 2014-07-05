@@ -61,7 +61,15 @@ namespace PopTwit
 
         private void InitializeBinding()
         {
-            this.hotkey = new HotKey(Key.ImeConvert, KeyModifier.None, OnHotKeyHandler);
+            try { 
+                this.hotkey = new HotKey(Key.ImeConvert, KeyModifier.None, OnHotKeyHandler);
+            }
+            catch
+            {
+                System.Windows.MessageBox.Show("既にホットキーが登録されています。起動済みではありませんか？",
+                    "エラー", MessageBoxButton.OK);
+                System.Windows.Application.Current.Shutdown();
+            }
         }
 
         private void clickedTweetButton(object sender, RoutedEventArgs e)

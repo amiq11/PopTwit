@@ -39,7 +39,10 @@ namespace PopTwit
             Action = action;
             if (register)
             {
-                Register();
+                if (!Register())
+                {
+                    throw new InvalidOperationException("Failed Hotkey Registration");
+                }
             }
         }
 
