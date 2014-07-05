@@ -18,6 +18,14 @@ namespace PopTwit
             toolStripMenuItemShow.Click += toolStripMenuItemShow_Click;
             toolStripMenuItemExit.Click += toolStripMenuItemExit_Click;
             toolStripMenuItemAuth.Click += toolStripMenuItemAuth_Click;
+
+            if (win.controller.MyScreenName != "") {
+                ShowPopup("Launched as " + win.controller.MyScreenName);
+            }
+            else
+            {
+                ShowPopup("Launched but cannot log in correctly");
+            }
         }
 
         // 常駐させるウィンドウはここで保持する

@@ -33,10 +33,27 @@ namespace PopTwit
             }
         }
 
+        public ILoggedUser me = null;
+
+        public string MyScreenName
+        {
+            get
+            {
+                if (me == null) return "";
+                else return me.ScreenName;
+            }
+        }
+
+        public IList<ITweet> ReplyList { get; protected set; }
+
         private Tweetinvi.Core.Interfaces.oAuth.IOAuthCredentials credential;
         private TweetAuthWindow taw;
         public TweetController()
         {
+            // リプライ一覧の作成
+            ReplyList = new List<ITweet>();
+
+            // APIキーが登録されていなかったらAuthの画面を開く
             if (AccessToken.Length == 0 || AccessSecret.Length == 0)
             {
                 taw = new TweetAuthWindow(this);
@@ -44,10 +61,19 @@ namespace PopTwit
             }
             else
             {
-                Console.WriteLine("Token: " + TweetController.AccessToken);
-                Console.WriteLine("Secret: " + TweetController.AccessSecret);
-                credential = TwitterCredentials.CreateCredentials(AccessToken, AccessSecret, ConsumerKey, ConsumerSecret);
-                TwitterCredentials.SetCredentials(credential);
+                RenewCredential();
+                me = User.GetLoggedUser();
+                if (me != null)
+                {
+                    var tl = me.GetMentionsTimeline();
+                    foreach (var t in tl)
+                    {
+                        if (t.InReplyToUserId == me.UserIdentifier.Id)
+                        {
+                            ReplyList.Insert(0, t);
+                        }
+                    }
+                }
             }
         }
 
@@ -60,9 +86,20 @@ namespace PopTwit
         public void RenewCredential() {
             credential = TwitterCredentials.CreateCredentials(AccessToken, AccessSecret, ConsumerKey, ConsumerSecret);
             TwitterCredentials.SetCredentials(credential);
-        }
 
-        public event ReplyEventHandler OnReply;
+            me = User.GetLoggedUser();
+            if (me != null)
+            {
+                var tl = me.GetMentionsTimeline();
+                foreach (var t in tl)
+                {
+                    if (t.InReplyToUserId == me.UserIdentifier.Id)
+                    {
+                        ReplyList.Insert(0, t);
+                    }
+                }
+            }
+        }
 
         public void ProcessStream()
         {
@@ -80,11 +117,12 @@ namespace PopTwit
                     {
                         string[] idStrs = m.Value.Split(' ');
                         Console.WriteLine("Reply to: '" + m.Value + "'");
-                        if (idStrs.Contains("@amiq11"))
+                        if (idStrs.Contains("@"+MyScreenName))
                         {
-                            Console.WriteLine("AMIQ!!");
+                            Console.WriteLine(MyScreenName + "!!");
                             NotifyIconWrapper notify = (NotifyIconWrapper)Application.Current.Properties["notifyIcon"];
                             notify.ShowPopup(t.Creator.Name + " [" + t.Creator.ScreenName + "]: " + t.Text);
+                            ReplyList.Add(t);
                         }
                     }
                 };
@@ -101,12 +139,19 @@ namespace PopTwit
         }
 
 
-        public ITweet Update(string tweet)
+        public ITweet Update(string tweet, ITweet replyTo = null)
         {
             ITweet t = Tweet.CreateTweet(tweet);
             TwitterCredentials.ExecuteOperationWithCredentials(credential, () =>
             {
-                Tweet.PublishTweet(t);
+                if (replyTo != null)
+                {
+                    Tweet.PublishTweetInReplyTo(t, replyTo);
+                }
+                else
+                {
+                    Tweet.PublishTweet(t);
+                }
             });
             return t;
         }
